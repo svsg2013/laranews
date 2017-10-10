@@ -9,21 +9,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
 
         <!-- C3 charts css -->
-        <link href="../plugins/c3/c3.min.css" rel="stylesheet" type="text/css"  />
+        <link href="{{asset('backend/plugins/c3/c3.min.css')}}" rel="stylesheet" type="text/css"  />
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/core.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/components.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/icons.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/pages.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/menu.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/css/responsive.css')}}" rel="stylesheet" type="text/css" />
 
-        <script src="assets/js/modernizr.min.js"></script>
+        <script src="{{asset('backend/js/modernizr.min.js')}}"></script>
 
     </head>
 
@@ -42,10 +42,10 @@
                     <!-- Image logo -->
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="" height="25">
+                            <img src="{{asset('backend/images/logo.png')}}" alt="" height="25">
                         </span>
                         <i>
-                            <img src="assets/images/logo_sm.png" alt="" height="28">
+                            <img src="{{asset('backend/images/logo_sm.png')}}" alt="" height="28">
                         </i>
                     </a>
                 </div>
@@ -283,7 +283,7 @@
 
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                    <img src="{{asset('backend/images/users/avatar-4.jpg')}}" alt="user-img" class="img-circle user-img">
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
@@ -684,7 +684,7 @@
                                             <tr>
                                                 <td>
 
-                                                    <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
+                                                    <img src="{{asset('backend/images/users/avatar-2.jpg')}}" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -712,7 +712,7 @@
 
                                             <tr>
                                                 <td>
-                                                    <img src="assets/images/users/avatar-3.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
+                                                    <img src="{{asset('backend/images/users/avatar-2.jpg')}}" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -739,7 +739,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <img src="assets/images/users/avatar-4.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
+                                                    <img src="{{asset('backend/images/users/avatar-2.jpg')}}" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -766,7 +766,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
+                                                    <img src="{{asset('backend/images/users/avatar-2.jpg')}}" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -794,7 +794,7 @@
 
                                             <tr>
                                                 <td>
-                                                    <img src="assets/images/users/avatar-8.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
+                                                    <img src="{{asset('backend/images/users/avatar-2.jpg')}}" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                                 </td>
 
                                                 <td>
@@ -879,7 +879,29 @@
                         <!--- end row -->
 
 
+                        <script src="{{asset('js/jquery.min.js')}}"></script>
+                        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+                        <script src="{{asset('js/metisMenu.min.js')}}"></script>
+                        <script src="{{asset('js/waves.js')}}"></script>
+                        <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
 
+                        <!-- Counter js  -->
+                        <script src="{{asset('../plugins/waypoints/jquery.waypoints.min.js')}}"></script>
+                        <script src="{{asset('../plugins/counterup/jquery.counterup.min.js')}}"></script>
+
+                        <!--C3 Chart-->
+                        <script type="text/javascript" src="{{asset('../plugins/d3/d3.min.js')}}"></script>
+                        <script type="text/javascript" src="{{asset('../plugins/c3/c3.min.js')}}"></script>
+
+                        <!--Echart Chart-->
+                        <script src="{{asset('../plugins/echart/echarts-all.js')}}"></script>
+
+                        <!-- Dashboard init -->
+                        <script src="{{asset('pages/jquery.dashboard.js')}}"></script>
+
+                        <!-- App js -->
+                        <script src="{{asset('js/jquery.core.js')}}"></script>
+                        <script src="{{asset('js/jquery.app.js')}}"></script>
 
                     </div> <!-- container -->
 
@@ -903,29 +925,29 @@
 
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/metisMenu.min.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="{{asset('backend/js/jquery.min.js')}}"></script>
+        <script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('backend/js/metisMenu.min.js')}}"></script>
+        <script src="{{asset('backend/js/waves.js')}}"></script>
+        <script src="{{asset('backend/js/jquery.slimscroll.js')}}"></script>
 
         <!-- Counter js  -->
-        <script src="../plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="../plugins/counterup/jquery.counterup.min.js"></script>
+        <script src="{{asset('backend/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
+        <script src="{{asset('backend/plugins/counterup/jquery.counterup.min.js')}}"></script>
 
         <!--C3 Chart-->
-        <script type="text/javascript" src="../plugins/d3/d3.min.js"></script>
-        <script type="text/javascript" src="../plugins/c3/c3.min.js"></script>
+        <script type="text/javascript" src="{{asset('backend/plugins/d3/d3.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('backend/plugins/c3/c3.min.js')}}"></script>
 
         <!--Echart Chart-->
-		<script src="../plugins/echart/echarts-all.js"></script>
+        <script src="{{asset('backend/plugins/echart/echarts-all.js')}}"></script>
 
         <!-- Dashboard init -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
+        <script src="{{asset('backend/pages/jquery.dashboard.js')}}"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="{{asset('backend/js/jquery.core.js')}}"></script>
+        <script src="{{asset('backend/js/jquery.app.js')}}"></script>
 
     </body>
 </html>
