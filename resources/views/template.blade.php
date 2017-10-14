@@ -17,6 +17,14 @@
     <link href="{{asset('backend/plugins/datatables/dataTables.colVis.css')}}" rel="stylesheet" type="text/css')}}"/>
     <link href="{{asset('backend/plugins/datatables/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/plugins/datatables/fixedColumns.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
+
+    <!-- Jquery filer css -->
+    <link href="{{asset('backend/plugins/jquery.filer/css/jquery.filer.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css')}}" rel="stylesheet" />
+
+    <!-- Bootstrap fileupload css -->
+    <link href="{{asset('backend/plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}" rel="stylesheet" />
+
     <script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
 
     <!-- App favicon -->
@@ -608,6 +616,15 @@
         <script src="{{asset('backend/plugins/datatables/dataTables.scroller.min.js')}}"></script>
         <script src="{{asset('backend/plugins/datatables/dataTables.colVis.js')}}"></script>
         <script src="{{asset('backend/plugins/datatables/dataTables.fixedColumns.min.js')}}"></script>
+
+        <!-- Jquery filer js -->
+        <script src="{{asset('backend/plugins/jquery.filer/js/jquery.filer.min.js')}}"></script>
+
+        <!-- Bootstrap fileupload js -->
+        <script src="{{asset('backend/plugins/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
+        <!-- page specific js -->
+        <script src="{{asset('backend/pages/jquery.fileuploads.init.js')}}"></script>
+
 
         <!-- init -->
         <script src="{{asset('backend/pages/jquery.datatables.init.js')}}"></script>

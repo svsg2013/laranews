@@ -6,50 +6,54 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="p-20">
-                            <form class="form-horizontal" role="form">
+                            {!! Form::open(['url' => 'food','class'=>'form-horizontal','role'=>'form']) !!}
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Input Select</label>
+                                    {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        <select class="form-control">
-                                            <option>Select Category</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
+                                        {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                     {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
+                                     <div class="col-md-10">
+                                         {!! Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...','class'=>'form-control']) !!}
+                                     </div>
+                                 </div>
+                                <div class="form-group">
+                                    {!! Form::label('Summary','Summary',['class'=>'col-md-2 control-label']) !!}
+                                    <div class="col-md-10">
+                                        {!! Form::textarea('txtSummary',old('txtSummary'),['placeholder'=>'To type here','class'=>'form-control','rows'=>5]) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label">Title</label>
+                                    {!! Form::label('Content','Content',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" placeholder="Title" name="txtTitle">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label" >Summary</label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" rows="5" name="txtSummary">
-                                        </textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label" >Content</label>
-                                    <div class="col-md-10">
-                                        <textarea class="form-control" rows="5" name="txtContent" id="editor1">
-                                        </textarea>
+                                        {!! Form::textarea('txtContent',old('txtContent'),['class'=>'form-control','id'=>'editor1']) !!}
                                         <script>
                                             CKEDITOR.replace( 'editor1' );
                                         </script>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2">Select thumbnail</label>
+                                    {!! Form::label('Select thumbnail','Select thumbnail',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        <input type="file" class="form-control">
+                                        {!! Form::file('fileImg',['class'=>'form-control']) !!}
                                     </div>
                                 </div>
-                            </form>
+
+                                <div class="form-group clearfix">
+                                    {!! Form::label('Select images','Select images',['class'=>'col-md-2 control-label']) !!}
+                                    <div class="col-md-10 padding-left-0 padding-right-0">
+                                        <input type="file" name="files[]" id="filer_input1" multiple="multiple">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label(' ',' ',['class'=>'col-md-2 control-label']) !!}
+                                    <div class="col-md-10">
+                                        {!! Form::button('Click me, Please!',['class'=>'btn btn-custom waves-effect waves-light btn-md','type'=>'submit']) !!}
+                                    </div>
+                                </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
 
