@@ -17,6 +17,7 @@
     <link href="{{asset('backend/plugins/datatables/dataTables.colVis.css')}}" rel="stylesheet" type="text/css')}}"/>
     <link href="{{asset('backend/plugins/datatables/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/plugins/datatables/fixedColumns.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
+    <script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
@@ -569,7 +570,7 @@
         <script src="{{asset('backend/js/metisMenu.min.js')}}"></script>
         <script src="{{asset('backend/js/waves.js')}}"></script>
         <script src="{{asset('backend/js/jquery.slimscroll.js')}}"></script>
-        <script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
+
 
         <!-- Counter js  -->
         <script src="{{asset('backend/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
