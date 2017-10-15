@@ -43,17 +43,10 @@
                                         {!! Form::file('fileImg',['class'=>'form-control']) !!}
                                     </div>
                                 </div>
-
-                                <div class="form-group clearfix">
-                                    {!! Form::label('Select images','Select images',['class'=>'col-md-2 control-label']) !!}
-                                    <div class="col-md-10 padding-left-0 padding-right-0">
-                                        <input type="file" name="files[]" id="filer_input1" multiple="multiple">
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     {!! Form::label(' ',' ',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::button('Click me, Please!',['class'=>'btn btn-custom waves-effect waves-light btn-md','type'=>'submit']) !!}
+                                        {!! Form::button('Submit',['class'=>'btn btn-custom waves-effect waves-light btn-md','type'=>'submit']) !!}
                                     </div>
                                 </div>
                             {!! Form::close() !!}
@@ -67,12 +60,4 @@
         </div><!-- end col -->
     </div>
     <!-- end row -->
-@endsection
-@section('jsfiles')
-    <!-- Jquery filer js -->
-    <script src="{{asset('backend/plugins/jquery.filer/js/jquery.filer.min.js')}}"></script>
-    <!-- Bootstrap fileupload js -->
-    <script src="{{asset('backend/plugins/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
-    <!-- page specific js -->
-    <script src="{{asset('backend/pages/jquery.fileuploads.init.js')}}"></script>
 @endsection

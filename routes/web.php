@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test',function(){
-    return view('admin.partial.tableData');
+Route::group(['prefix'=>'admin'],function(){
+    Route::group(['prefix'=>'panel'],function(){
+        Route::resource('user','UserController');
+    });
 });
 
