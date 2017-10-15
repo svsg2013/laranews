@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('test',function(){
-    return view('admin.partial.createData');
+    return view('admin.partial.');
 });
 

@@ -2,7 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Adminox - Responsive Web App Kit</title>
+    <title>
+        @section('title')
+            Trung tâm điều khiển
+            @show
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -597,69 +601,8 @@
         <!-- App js -->
         <script src="{{asset('backend/js/jquery.core.js')}}"></script>
         <script src="{{asset('backend/js/jquery.app.js')}}"></script>
+@yield('jstable')
+@yield('jsfiles')
 
-    <!-----crip table-->
-        <script src="{{asset('backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.bootstrap.js')}}"></script>
-
-        <script src="{{asset('backend/plugins/datatables/dataTables.buttons.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/buttons.bootstrap.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/jszip.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/pdfmake.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/vfs_fonts.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/buttons.html5.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/buttons.print.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.fixedHeader.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.keyTable.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/responsive.bootstrap.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.scroller.min.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.colVis.js')}}"></script>
-        <script src="{{asset('backend/plugins/datatables/dataTables.fixedColumns.min.js')}}"></script>
-
-        <!-- Jquery filer js -->
-        <script src="{{asset('backend/plugins/jquery.filer/js/jquery.filer.min.js')}}"></script>
-
-        <!-- Bootstrap fileupload js -->
-        <script src="{{asset('backend/plugins/bootstrap-fileupload/bootstrap-fileupload.js')}}"></script>
-        <!-- page specific js -->
-        <script src="{{asset('backend/pages/jquery.fileuploads.init.js')}}"></script>
-
-
-        <!-- init -->
-        <script src="{{asset('backend/pages/jquery.datatables.init.js')}}"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#datatable').dataTable();
-                $('#datatable-keytable').DataTable({keys: true});
-                $('#datatable-responsive').DataTable();
-                $('#datatable-colvid').DataTable({
-                    "dom": 'C<"clear">lfrtip',
-                    "colVis": {
-                        "buttonText": "Change columns"
-                    }
-                });
-                $('#datatable-scroller').DataTable({
-                    ajax: "{{asset('backend/plugins/datatables/json/scroller-demo.json')}}",
-                    deferRender: true,
-                    scrollY: 380,
-                    scrollCollapse: true,
-                    scroller: true
-                });
-                var table = $('#datatable-fixed-header').DataTable({fixedHeader: false});
-                var table = $('#datatable-fixed-col').DataTable({
-                    scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    paging: false,
-                    fixedColumns: {
-                        leftColumns: 1,
-                        rightColumns: 1
-                    }
-                });
-            });
-            TableManageButtons.init();
-
-        </script>
     </body>
 </html>
