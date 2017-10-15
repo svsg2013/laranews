@@ -232,7 +232,7 @@
     </div>
 @endsection
 @section('jstable')
-        
+
         <!--js table-->
         <script src="{{asset('backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
         <script src="{{asset('backend/plugins/datatables/dataTables.bootstrap.js')}}"></script>
@@ -265,7 +265,7 @@
                 }
             });
             $('#datatable-scroller').DataTable({
-                ajax: "../plugins/datatables/json/scroller-demo.json",
+                ajax: "{{asset('backend/plugins/datatables/json/scroller-demo.json')}}",
                 deferRender: true,
                 scrollY: 380,
                 scrollCollapse: true,
