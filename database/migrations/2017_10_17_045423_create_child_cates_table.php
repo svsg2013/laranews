@@ -16,6 +16,7 @@ class CreateChildCatesTable extends Migration
         Schema::create('child_cates', function (Blueprint $table) {
             $table->increments('id');
 			$table->integer('cateParen_id')->unsigned();
+			$table->integer('lvl')->unsigned();
 			$table->foreign('cateParen_id')
 				  ->references('id')
 				  ->on('categories')

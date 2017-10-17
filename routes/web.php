@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['prefix'=>'panel'],function(){
-        Route::resource('user','UserController');
+        Route::resource('category','CateController');
     });
 });
 

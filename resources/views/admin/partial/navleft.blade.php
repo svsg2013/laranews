@@ -31,8 +31,8 @@
                 <li>
                     <a href="javascript: void(0);" aria-expanded="true"><i class="fi-head"></i> <span> Users </span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
-                        <li><a href="{{route('user.create')}}">Create News</a></li>
-                        <li><a href="{{route('user.index')}}">List News</a></li>
+                        <li><a href="{{route('category.create')}}">Create News</a></li>
+                        <li><a href="{{route('category.index')}}">List News</a></li>
                     </ul>
                 </li>
                 <li><a href="calendar.html"><i class="fi-cog"></i> <span>Setting</span> </a></li>

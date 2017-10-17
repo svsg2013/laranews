@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChildCate extends Model
 {
-    protected $fillable = ['child_cates'];
-	
-	return $this->belongsTo('App\Category','foreign_key','cateParen_id);
+    protected $table= 'child_cates';
+
+    public function category(){
+        return $this->belongsTo('App\Category','cateParen_id','id');
+    }
 }
