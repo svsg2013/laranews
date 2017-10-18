@@ -1,0 +1,26 @@
+function showCategories($categories, $parent_id = 0, $char = '')
+{
+    foreach ($categories as $key => $item)
+    {
+        // Nếu là chuyên mục con thì hiển thị
+        if ($item['parent_id'] == $parent_id)
+        {
+            echo '<tr>';
+                echo '<td>';
+                    echo $char . $item['title'];
+                echo '</td>';
+            echo '</tr>';
+             
+            // Xóa chuyên mục đã lặp
+            unset($categories[$key]);
+             
+            // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
+            showCategories($categories, $item['id'], $char.'|---');
+        }
+    }
+}
+
+$cate= ->toArray();
+
+0=0
+hhh
