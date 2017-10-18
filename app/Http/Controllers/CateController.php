@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
@@ -14,7 +14,7 @@ class CateController extends Controller
      */
     public function index()
     {
-        $cate= Category::all();
+        $cate= DB::table('categories')->get();
         return view('admin.cate.list')->with(['cates'=>$cate]);
     }
 
@@ -25,7 +25,11 @@ class CateController extends Controller
      */
     public function create()
     {
-        //
+        $cate= DB::table('categories')
+            ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
+            ->select('name','lvl','alias','metaName','description','weight','child_cates.cateParen_id')
+            ->get()->toArray();
+        return view('admin.cate.create')->with(['cates'=>$cate]);
     }
 
     /**

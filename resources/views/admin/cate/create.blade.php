@@ -19,35 +19,22 @@
                                  <div class="form-group">
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
-                                         {!! Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...','class'=>'form-control']) !!}
+                                         <select class="form-control">
+                                             <option name="0">Root</option>
+                                             {{getMenu($cates)}}
+                                         </select>
                                      </div>
                                  </div>
                                 <div class="form-group">
-                                    {!! Form::label('Summary','Summary',['class'=>'col-md-2 control-label']) !!}
+                                    {!! Form::label('Meta Title','Meta Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::textarea('txtSummary',old('txtSummary'),['placeholder'=>'To type here','class'=>'form-control','rows'=>5]) !!}
+                                        {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here if any','class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('Content','Content',['class'=>'col-md-2 control-label']) !!}
+                                    {!! Form::label('Meta Description','Meta Description',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::textarea('txtContent',old('txtContent'),['class'=>'form-control','id'=>'editor1']) !!}
-                                        <script>
-                                            CKEDITOR.replace( 'editor1' );
-                                        </script>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    {!! Form::label('Select thumbnail','Select thumbnail',['class'=>'col-md-2 control-label']) !!}
-                                    <div class="col-md-10">
-                                        {!! Form::file('fileImg',['class'=>'form-control']) !!}
-                                    </div>
-                                </div>
-
-                                <div class="form-group clearfix">
-                                    {!! Form::label('Select images','Select images',['class'=>'col-md-2 control-label']) !!}
-                                    <div class="col-md-10 padding-left-0 padding-right-0">
-                                        <input type="file" name="files[]" id="filer_input1" multiple="multiple">
+                                        {!! Form::textarea('txtDescription',old('txtDescription'),['placeholder'=>'To type here if any','class'=>'form-control','rows'=>5]) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">

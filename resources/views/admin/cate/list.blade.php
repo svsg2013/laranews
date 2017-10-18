@@ -8,6 +8,8 @@
                     <tr>
                         <th>Name</th>
                         <th>Alias</th>
+                        <th>Meta Title</th>
+                        <th>Description</th>
                         <th>Weight</th>
                     </tr>
                     </thead>
@@ -15,12 +17,14 @@
                     <tr>
                         <td>{{$cate->name}}</td>
                         <td>{{$cate->alias}}</td>
+                        <td>{{$cate->metaName}}</td>
+                        <td>{{$cate->description}}</td>
                         <td>{{$cate->weight}}</td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
-            </div>
+             </div>
         </div>
     </div>
 @endsection
