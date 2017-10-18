@@ -15,18 +15,20 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('childCate_id')->unsigned();
+			$table->integer('Cate_id')->unsigned();
 			$table->string('title')->unique();
+			$table->string('metaTitle');
 			$table->string('alias');
 			$table->mediumText('summary');
+			$table->mediumText('metaDescription');
 			$table->longText('content');
 			$table->boolean('feature');
 			$table->boolean('hot');
 			$table->integer('sort')->unsigned();
 			$table->integer('view')->unsigned();
 			$table->boolean('active');
-			$table->foreign('childCate_id')
-				  ->references('id')->on('child_cates')
+			$table->foreign('Cate_id')
+				  ->references('id')->on('categories')
 				  ->onDelete('cascade');
             $table->timestamps();
         });
