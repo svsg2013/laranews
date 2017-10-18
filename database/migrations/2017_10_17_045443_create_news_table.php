@@ -20,7 +20,7 @@ class CreateNewsTable extends Migration
 			$table->string('metaTitle');
 			$table->string('alias');
 			$table->mediumText('summary');
-			$table->mediumText('metaDescription');
+			$table->string('description');
 			$table->longText('content');
 			$table->boolean('feature');
 			$table->boolean('hot');
