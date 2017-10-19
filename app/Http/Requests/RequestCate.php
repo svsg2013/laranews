@@ -13,7 +13,7 @@ class RequestCate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,14 +25,14 @@ class RequestCate extends FormRequest
     {
         return [
             'txtName'=>'required|unique:categories,name',
-			'slMenu'=>'required'
+			'slMenu'=>'required',
         ];
     }
 	
 	public function messages(){
 		return [
-			'txtName.required'=>'Vui long nhap tieu de',
-			'txtName.unique'=>'Tieu de da ton tai',
+			'txtName.required'=>'Vui lòng nhập tiêu đề',
+			'txtName.unique'=>'Tiêu đề đã tồn tại',
 			'slMenu.required'=>'Vui long chon thu muc',
 		];
 	}

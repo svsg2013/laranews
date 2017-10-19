@@ -386,6 +386,8 @@
         <!-- App js -->
         <script src="{{asset('backend/js/jquery.core.js')}}"></script>
         <script src="{{asset('backend/js/jquery.app.js')}}"></script>
+        <!--hixxx myscript-->
+        <script src="{{asset('backend/js/myScript.js')}}"></script>
 @yield('jstable')
 @yield('jsfiles')
 

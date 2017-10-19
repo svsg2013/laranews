@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton(
+            \App\Repositories\Cates\CateRepositoryInterface::class,
+            \App\Repositories\Cates\CateEloquentRepository::class
+        );
 
     }
 }

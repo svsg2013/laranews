@@ -8,8 +8,13 @@
             <div class="card-box">
                 <div class="row">
                     <div class="col-md-12">
+                        @include('admin.partial.errors')
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="p-20">
-                            {!! Form::open(['route' => route('category.store'),'class'=>'form-horizontal','role'=>'form']) !!}
+                            {!! Form::open(['route' => 'category.store','class'=>'form-horizontal','role'=>'form']) !!}
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
@@ -21,7 +26,7 @@
                                      <div class="col-md-10">
                                          <select class="form-control" name="slMenu">
                                              <option name="0">Root</option>
-                                             {{getMenu($cates)}}
+                                                {{getMenu($cates)}}
                                          </select>
                                      </div>
                                  </div>

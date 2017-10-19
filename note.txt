@@ -1,0 +1,1 @@
+20-10 chưa xử lý khi chọn danh mục cha đã submit nhưng bắt lỗi thì tiêu đề đã lưu dữ liệu còn fild "lvl" thì chưa có lưu

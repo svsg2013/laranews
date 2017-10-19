@@ -1,14 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCate;
-use App\Category;
-use App\ChildCate;
+use App\Repositories\Cates\CateRepositoryInterface;
+
 class CateController extends Controller
 {
+    protected $_cate;
+    public function __construct(CateRepositoryInterface $cateRepositoryInterface)
+    {
+        $this->_cate= $cateRepositoryInterface;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +21,8 @@ class CateController extends Controller
      */
     public function index()
     {
-        $cate= DB::table('categories')->get();
+        //$cate= DB::table('categories')->get();
+        $cate= $this->_cate->getAll();
         return view('admin.cate.list')->with(['cates'=>$cate]);
     }
 
@@ -27,10 +33,7 @@ class CateController extends Controller
      */
     public function create()
     {
-        $cate= DB::table('categories')
-            ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
-            ->select('name','lvl','alias','metaName','description','weight','child_cates.cateParen_id')
-            ->get()->toArray();
+        $cate=$this->_cate->getDataMenu();
         return view('admin.cate.create')->with(['cates'=>$cate]);
     }
 
@@ -42,10 +45,8 @@ class CateController extends Controller
      */
     public function store(RequestCate $requestcate)
     {
-		$data= new Category();
-		$data->name= $requestcate->txtName;
-		//$data->save();
-        return view('admin.cate.list');
+        $data= $this->_cate->getCreateAndEdit($requestcate->all());
+        return redirect()->route('category.index');
     }
 
     /**
