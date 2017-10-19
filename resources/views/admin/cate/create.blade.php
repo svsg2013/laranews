@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="p-20">
-                            {!! Form::open(['url' => 'food','class'=>'form-horizontal','role'=>'form']) !!}
+                            {!! Form::open(['url' => route('category.store'),'class'=>'form-horizontal','role'=>'form']) !!}
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
