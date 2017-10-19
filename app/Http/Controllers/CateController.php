@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequestCate;
 use App\Category;
+use App\ChildCate;
 class CateController extends Controller
 {
     /**
@@ -38,8 +40,11 @@ class CateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestCate $requestcate)
     {
+		$data= new Category();
+		$data->name= $requestcate->txtName;
+		//$data->save();
         return view('admin.cate.list');
     }
 

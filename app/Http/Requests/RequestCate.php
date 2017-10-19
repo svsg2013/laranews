@@ -24,7 +24,16 @@ class RequestCate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'txtName'=>'required|unique:categories,name',
+			'slMenu'=>'required'
         ];
     }
+	
+	public function messages(){
+		return [
+			'txtName.required'=>'Vui long nhap tieu de',
+			'txtName.unique'=>'Tieu de da ton tai',
+			'slMenu.required'=>'Vui long chon thu muc',
+		];
+	}
 }

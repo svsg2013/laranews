@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="p-20">
-                            {!! Form::open(['url' => route('category.store'),'class'=>'form-horizontal','role'=>'form']) !!}
+                            {!! Form::open(['route' => route('category.store'),'class'=>'form-horizontal','role'=>'form']) !!}
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
@@ -19,7 +19,7 @@
                                  <div class="form-group">
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
-                                         <select class="form-control">
+                                         <select class="form-control" name="slMenu">
                                              <option name="0">Root</option>
                                              {{getMenu($cates)}}
                                          </select>
@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     {!! Form::label('Meta Title','Meta Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here if any','class'=>'form-control']) !!}
+                                        {!! Form::text('txtMeta',old('txtMeta'),['placeholder'=>'To type here if any','class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
