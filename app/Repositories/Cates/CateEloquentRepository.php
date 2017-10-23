@@ -32,16 +32,32 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
     }
 
     public function getCreateAndEdit($inputFile, $id=0){
-        $cateData= new Category();
-        $cateData->name= $inputFile['txtName'];
-        $cateData->alias= changeTitle($inputFile['txtName']);
-        $cateData->metaName= $inputFile['txtMeta'];
-        $cateData->description= $inputFile['txtDescription'];
-        $cateData->save();
-            $cateChildData= new ChildCate();
-            $cateChildData->cateParen_id= $cateData->id;
-            $cateChildData->lvl= $inputFile['slMenu'];
-            $cateChildData->save();
-        return redirect()->route('category.index')->with('thongbao','Tạo danh mục thành công');
+				if($id==0){
+				$cateData= new Category();
+				$cateData->name= $inputFile['txtName'];
+				$cateData->alias= changeTitle($inputFile['txtName']);
+				if(isset($inputFile['txtMeta'])){
+					$cateData->metaName= $inputFile['txtMeta'];
+				}else{
+					$cateData->metaName= $inputFile['txtName'];
+				}
+				$cateData->description= $inputFile['txtDescription'];
+				$cateData->save();
+					$cateChildData= new ChildCate();
+					$cateChildData->cateParen_id= $cateData->id;
+					$cateChildData->lvl= $inputFile['slMenu'];
+					$cateChildData->save();
+			}else{
+				$cateData= Category::find($id);
+				$cateData->name= $inputFile['txtName'];
+				$cateData->alias= changeTitle($inputFile['txtName']);
+				$cateData->metaName= $inputFile['txtMeta'];
+				$cateData->description= $inputFile['txtDescription'];
+				$cateData->save();
+					$cateChildData= new ChildCate();
+					$cateChildData->cateParen_id= $cateData->id;
+					$cateChildData->lvl= $inputFile['slMenu'];
+					$cateChildData->save();
+			}
     }
 }

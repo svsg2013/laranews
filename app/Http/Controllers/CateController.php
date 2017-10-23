@@ -57,7 +57,7 @@ class CateController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -68,7 +68,8 @@ class CateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data= $this->_cate->find($id);
+		return view('admin.cate.edit')->with('datas',$data);
     }
 
     /**

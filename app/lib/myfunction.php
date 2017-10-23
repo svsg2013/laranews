@@ -7,13 +7,17 @@
  */
 
 
-function getMenu($category,$lvl = 0,$char='|--'){
+function getMenu($category,$lvl = 0,$char='|--',$select=0){
+	//nói thật viết xong để vài tháng đọc lại cũng méo hiểu mình viết nó như thế nào
     foreach($category as $key => $cate){
         if($cate->lvl == $lvl){
-            echo "<option value='".$cate->cateParen_id."'>$char $cate->name</option>";
-            //xoa mang lap
-            unset($category[$key]);
-            getMenu($category,$cate->cateParen_id,$char.'|--');
+			if($cate->cateParen_id!=0 && $cate->cateParen_id==$select){
+				echo "<option value='".$cate->cateParen_id."' selected='selected'>$char $cate->name</option>";
+			}else{
+				echo "<option value='".$cate->cateParen_id."'>$char $cate->name</option>";
+			}
+						unset($category[$key]);
+			            getMenu($category,$cate->cateParen_id,$char.'|--');
         }
     }
 }

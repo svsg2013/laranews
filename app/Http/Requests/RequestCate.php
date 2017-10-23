@@ -24,8 +24,10 @@ class RequestCate extends FormRequest
     public function rules()
     {
         return [
-            'txtName'=>'required|unique:categories,name',
+            //'txtName'=>'required|unique:categories,name',
 			'slMenu'=>'required',
+			//'slMenu'=>'required_if:seclection,-1'
+			'txtName'=>'required|unique:categories,name|required_if:slMenu,-1',
         ];
     }
 	
@@ -33,7 +35,7 @@ class RequestCate extends FormRequest
 		return [
 			'txtName.required'=>'Vui lòng nhập tiêu đề',
 			'txtName.unique'=>'Tiêu đề đã tồn tại',
-			'slMenu.required'=>'Vui long chon thu muc',
+			'slMenu.required_if'=>'Vui long chon thu muc'
 		];
 	}
 }
