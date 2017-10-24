@@ -54,8 +54,12 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
 				$cateData->metaName= $inputFile['txtMeta'];
 				$cateData->description= $inputFile['txtDescription'];
 				$cateData->save();
-					$cateChildData= new ChildCate();
-					$cateChildData->cateParen_id= $cateData->id;
+                    $getIDParent= DB::table('categories')
+                        ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
+                        ->select('child_cates.cateParen_id')
+                        ->where('child_cates.cateParen_id','=',$id)
+                        ->get();
+					$cateChildData= ChildCate::find($getIDParent);
 					$cateChildData->lvl= $inputFile['slMenu'];
 					$cateChildData->save();
 			}
