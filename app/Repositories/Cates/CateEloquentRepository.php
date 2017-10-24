@@ -32,40 +32,39 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
     }
 
     public function getCreateAndEdit($inputFile, $id=0){
-       /* $cateData= new Category();
-        $cateData->name= $inputFile['txtName'];
-        $cateData->alias= changeTitle($inputFile['txtName']);
-        $cateData->metaName= $inputFile['txtMeta'];
-        $cateData->description= $inputFile['txtDescription'];
-        $cateData->save();
-            $cateChildData= new ChildCate();
-            $cateChildData->cateParen_id= $cateData->id;
-            $cateChildData->lvl= $inputFile['slMenu'];
-            $cateChildData->save();*/
-       if ($id==0){
-           $cateData= new Category();
-           $cateData->name= $inputFile['txtName'];
-           $cateData->alias= changeTitle($inputFile['txtName']);
-           $cateData->metaName= $inputFile['txtMeta'];
-           $cateData->description= $inputFile['txtDescription'];
-           $cateData->save();
-           $cateChildData= new ChildCate();
-           $cateChildData->cateParen_id= $cateData->id;
-           $cateChildData->lvl= $inputFile['slMenu'];
-           $cateChildData->save();
-           return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
-       }else{
-           $cateData= Category::find($id);
-           $cateData->name= $inputFile['txtName'];
-           $cateData->alias= changeTitle($inputFile['txtName']);
-           $cateData->metaName= $inputFile['txtMeta'];
-           $cateData->description= $inputFile['txtDescription'];
-           $cateData->save();
-           $cateChildData= ChildCate::find($id);
-           $cateChildData->cateParen_id= $cateData->id;
-           $cateChildData->lvl= $inputFile['slMenu'];
-           $cateChildData->save();
-           return redirect()->route('category.index')->with('thongbao','Cập nhật danh mục tạo thành công');
-       }
+				if($id==0){
+				$cateData= new Category();
+				$cateData->name= $inputFile['txtName'];
+				$cateData->alias= changeTitle($inputFile['txtName']);
+				// khuc !empty -> không để trống thì thực hiện tức là có nhập vào text form
+				if(!empty($inputFile['txtMeta'])){
+                    $cateData->metaName= $inputFile['txtMeta'];
+
+				}else{
+                    $cateData->metaName= $inputFile['txtName'];
+				}
+				$cateData->description= $inputFile['txtDescription'];
+				$cateData->save();
+					$cateChildData= new ChildCate();
+					$cateChildData->cateParen_id= $cateData->id;
+					$cateChildData->lvl= $inputFile['slMenu'];
+					$cateChildData->save();
+			}else{
+				$cateData= Category::find($id);
+				$cateData->name= $inputFile['txtName'];
+				$cateData->alias= changeTitle($inputFile['txtName']);
+				$cateData->metaName= $inputFile['txtMeta'];
+				$cateData->description= $inputFile['txtDescription'];
+				$cateData->save();
+                    $getIDParent= DB::table('categories')
+                        ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
+                        ->select('child_cates.cateParen_id')
+                        ->where('child_cates.cateParen_id','=',$id)
+                        ->get();
+					$cateChildData= ChildCate::find($getIDParent);
+					$cateChildData->lvl= $inputFile['slMenu'];
+					$cateChildData->save();
+			}
+
     }
 }

@@ -23,7 +23,8 @@
             "App\\": "app/"
         },
         "files":[
-            "app/lib/myfunction.php"
+            "app/lib/myfunction.php",
+            "app/lib/krumo/class.krumo.php"
         ]
     },
     "autoload-dev": {

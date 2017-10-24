@@ -27,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Cates\CateRepositoryInterface::class,
             \App\Repositories\Cates\CateEloquentRepository::class
         );
-
     }
 }

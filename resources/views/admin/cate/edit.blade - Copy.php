@@ -15,20 +15,19 @@
                     <div class="col-md-12">
                         <div class="p-20">
                             {!! Form::open(['route' => ['category.update','id'=>12],'method'=>'put','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
-
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::text('txtName',old('txtName',isset($catePaId)?$catePaId->name:null),['placeholder'=>'To type here','class'=>'form-control']) !!}
+                                        {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                  <div class="form-group">
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
                                          <select class="form-control" name="slMenu">
-                                             <option value="-1">Select one</option>
+                                             <option value="-1">Select one Category</option>
                                              <option value="0">Root</option>
-                                             {{getMenu($datas,$lvl = 0,$char='|--',$catePaId->lvl)}}
+                                                {{getMenu($cates)}}
                                          </select>
                                      </div>
                                  </div>

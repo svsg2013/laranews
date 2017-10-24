@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCate;
 use App\Repositories\Cates\CateRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class CateController extends Controller
 {
@@ -46,6 +47,7 @@ class CateController extends Controller
     public function store(RequestCate $requestcate)
     {
         $data= $this->_cate->getCreateAndEdit($requestcate->all());
+        return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
     }
 
     /**
@@ -56,7 +58,7 @@ class CateController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -67,7 +69,14 @@ class CateController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cateData= $this->_cate->getDataMenu();
+        $cateParent= DB::table('categories')
+            ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
+            ->select('name','lvl','child_cates.cateParen_id')
+            ->where('child_cates.cateParen_id','=',$id)
+            //first get value object
+            ->get()->first();
+		return view('admin.cate.edit')->with(['datas'=>$cateData,'catePaId'=>$cateParent]);
     }
 
     /**

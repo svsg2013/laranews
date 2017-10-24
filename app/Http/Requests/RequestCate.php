@@ -33,7 +33,7 @@ class RequestCate extends FormRequest
 		return [
 			'txtName.required'=>'Vui lòng nhập tiêu đề',
 			'txtName.unique'=>'Tiêu đề đã tồn tại',
-			'slMenu.required'=>'Vui long chon thu muc',
+			'slMenu.required'=>'Vui long chon thu muc'
 		];
 	}
 }

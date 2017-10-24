@@ -25,8 +25,8 @@
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
                                          <select class="form-control" name="slMenu">
-                                             <option value="-1">Select one Category</option>
-                                             <option value="0">Root</option>
+                                             <option value="-1">Select one</option>
+											 <option value="0">Root</option>
                                                 {{getMenu($cates)}}
                                          </select>
                                      </div>
