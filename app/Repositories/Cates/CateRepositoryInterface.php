@@ -14,4 +14,5 @@ Interface CateRepositoryInterface
     public function getAll();
     public function getDataMenu();
     public function getCreateAndEdit($inputFile);
+    public function getDelete($id);
 }

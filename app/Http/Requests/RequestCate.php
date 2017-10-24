@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\Console\Input\Input;
 
 class RequestCate extends FormRequest
 {
@@ -25,7 +26,7 @@ class RequestCate extends FormRequest
     {
         return [
             'txtName'=>'required|unique:categories,name',
-			'slMenu'=>'required',
+			'slMenu'=>'required'
         ];
     }
 	
@@ -33,7 +34,7 @@ class RequestCate extends FormRequest
 		return [
 			'txtName.required'=>'Vui lòng nhập tiêu đề',
 			'txtName.unique'=>'Tiêu đề đã tồn tại',
-			'slMenu.required'=>'Vui long chon thu muc'
+			'slMenu.required'=>'Vui lòng chọn thư mục'
 		];
 	}
 }

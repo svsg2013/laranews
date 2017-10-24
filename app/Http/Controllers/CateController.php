@@ -86,9 +86,10 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestCate $requestcate, $id)
     {
-        //
+        $data= $this->_cate->getCreateAndEdit($requestcate->all(), $id);
+        return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
     }
 
     /**
@@ -99,6 +100,7 @@ class CateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tienVong= $this->_cate->getDelete($id);
+        return redirect()->route('category.index')->with('thongbao','Xóa thành công');
     }
 }

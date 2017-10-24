@@ -29,7 +29,7 @@
                         <td>{{$cate->weight}}</td>
                         <td>
                             <a href="{{route('category.edit',$cate->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button>
+                            <a href="{{route('category.destroy',$cate->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
                         </td>
                         <td>
                             <div class="checkbox checkbox-danger">

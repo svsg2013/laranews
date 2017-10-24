@@ -67,4 +67,10 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
 			}
 
     }
+
+    public function getDelete($id)
+    {
+        $getid= Category::find($id);
+        $getid->delete();
+    }
 }
