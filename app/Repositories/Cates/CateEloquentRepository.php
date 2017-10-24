@@ -32,7 +32,7 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
     }
 
     public function getCreateAndEdit($inputFile, $id=0){
-        $cateData= new Category();
+       /* $cateData= new Category();
         $cateData->name= $inputFile['txtName'];
         $cateData->alias= changeTitle($inputFile['txtName']);
         $cateData->metaName= $inputFile['txtMeta'];
@@ -41,7 +41,31 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
             $cateChildData= new ChildCate();
             $cateChildData->cateParen_id= $cateData->id;
             $cateChildData->lvl= $inputFile['slMenu'];
-            $cateChildData->save();
-        return redirect()->route('category.index')->with('thongbao','Tạo danh mục thành công');
+            $cateChildData->save();*/
+       if ($id==0){
+           $cateData= new Category();
+           $cateData->name= $inputFile['txtName'];
+           $cateData->alias= changeTitle($inputFile['txtName']);
+           $cateData->metaName= $inputFile['txtMeta'];
+           $cateData->description= $inputFile['txtDescription'];
+           $cateData->save();
+           $cateChildData= new ChildCate();
+           $cateChildData->cateParen_id= $cateData->id;
+           $cateChildData->lvl= $inputFile['slMenu'];
+           $cateChildData->save();
+           return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
+       }else{
+           $cateData= Category::find($id);
+           $cateData->name= $inputFile['txtName'];
+           $cateData->alias= changeTitle($inputFile['txtName']);
+           $cateData->metaName= $inputFile['txtMeta'];
+           $cateData->description= $inputFile['txtDescription'];
+           $cateData->save();
+           $cateChildData= ChildCate::find($id);
+           $cateChildData->cateParen_id= $cateData->id;
+           $cateChildData->lvl= $inputFile['slMenu'];
+           $cateChildData->save();
+           return redirect()->route('category.index')->with('thongbao','Cập nhật danh mục tạo thành công');
+       }
     }
 }

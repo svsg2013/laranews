@@ -46,7 +46,6 @@ class CateController extends Controller
     public function store(RequestCate $requestcate)
     {
         $data= $this->_cate->getCreateAndEdit($requestcate->all());
-        return redirect()->route('category.index');
     }
 
     /**

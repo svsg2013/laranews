@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="p-20">
-                            {!! Form::open(['route' => 'category.store','class'=>'form-horizontal','role'=>'form']) !!}
+                            {!! Form::open(['route' => 'category.store','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
@@ -25,7 +25,8 @@
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
                                          <select class="form-control" name="slMenu">
-                                             <option name="0">Root</option>
+                                             <option value="-1">Select one Category</option>
+                                             <option value="0">Root</option>
                                                 {{getMenu($cates)}}
                                          </select>
                                      </div>

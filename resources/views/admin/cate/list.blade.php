@@ -16,6 +16,8 @@
                         <th>Meta Title</th>
                         <th>Description</th>
                         <th>Weight</th>
+                        <th>Option</th>
+                        <th>Check all</th>
                     </tr>
                     </thead>
                     @foreach($cates as $cate)
@@ -25,6 +27,18 @@
                         <td>{{$cate->metaName}}</td>
                         <td>{{$cate->description}}</td>
                         <td>{{$cate->weight}}</td>
+                        <td>
+                            <a href="{{route('category.edit',$cate->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button>
+                        </td>
+                        <td>
+                            <div class="checkbox checkbox-danger">
+                                <input id="checkbox6" type="checkbox">
+                                <label for="checkbox6">
+
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
