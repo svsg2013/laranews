@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\CateUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestCate;
@@ -72,7 +73,7 @@ class CateController extends Controller
         $cateData= $this->_cate->getDataMenu();
         $cateParent= DB::table('categories')
             ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
-            ->select('name','lvl','child_cates.cateParen_id')
+            ->select('name','metaName','description','lvl','child_cates.cateParen_id')
             ->where('child_cates.cateParen_id','=',$id)
             //first get value object
             ->get()->first();
@@ -86,10 +87,10 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestCate $requestcate, $id)
+    public function update(Request $request, $id)
     {
-        $data= $this->_cate->getCreateAndEdit($requestcate->all(), $id);
-        return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
+        $data= $this->_cate->getCreateAndEdit($request->all(), $id);
+        return redirect()->route('category.index')->with('thongbao','Danh mục thay đổi thành công');
     }
 
     /**

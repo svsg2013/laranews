@@ -35,13 +35,13 @@
                                 <div class="form-group">
                                     {!! Form::label('Meta Title','Meta Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::text('txtMeta',old('txtMeta'),['placeholder'=>'To type here if any','class'=>'form-control']) !!}
+                                        {!! Form::text('txtMeta',old('txtName',isset($catePaId)?$catePaId->metaName:null),['placeholder'=>'To type here if any','class'=>'form-control']) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('Meta Description','Meta Description',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
-                                        {!! Form::textarea('txtDescription',old('txtDescription'),['placeholder'=>'To type here if any','class'=>'form-control','rows'=>5]) !!}
+                                        {!! Form::textarea('txtDescription',old('txtName',isset($catePaId)?$catePaId->description:null),['placeholder'=>'To type here if any','class'=>'form-control','rows'=>5]) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
