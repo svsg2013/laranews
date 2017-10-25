@@ -27,18 +27,18 @@
                         <td>{{$cate->metaName}}</td>
                         <td >
                             @if($cate->lvl==0)
-                                {!!'<span style="color: red">Thư mục cha</span>' !!}
+                                {!!'<span style="color: red;font-weight: 600;">Thư mục cha</span>' !!}
                             @else
                                 <?php
                                 $catePa= DB::table('categories')
                                     ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
                                     ->select('name')->where('categories.id','=',$cate->lvl)
                                     ->get()->first();
-                                echo $catePa->name;
+                                echo "<span style='color: #0a6aa1;font-weight: 600;'>".$catePa->name."</span>";
                                 ?>
                             @endif
                         </td>
-                        <td>{{$cate->weight}}</td>
+                        <td style="text-align: center">{{$cate->weight}}</td>
                         <td>
                             <a href="{{route('category.edit',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
                             <a href="{{route('category.destroy',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger" id="toastr-six"> <i class="fa fa-remove"></i> </button></a>

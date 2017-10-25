@@ -74,7 +74,7 @@ $("#toastr-six").click(function () {
         stack: 1
     })
 });
-
+/*
 $("#toastr-seven").click(function () {
     $.toast({
         text: 'Set the `hideAfter` property to false and the toast will become sticky.',
@@ -119,4 +119,4 @@ $("#toastr-ten").click(function () {
         hideAfter: 3000,
         stack: 1
     })
-});
+});*/
