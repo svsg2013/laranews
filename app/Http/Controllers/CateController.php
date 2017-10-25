@@ -24,7 +24,7 @@ class CateController extends Controller
     public function index()
     {
         //$cate= DB::table('categories')->get();
-        $cate= $this->_cate->getAll();
+        $cate= $this->_cate->getDataMenu();
         return view('admin.cate.list')->with(['cates'=>$cate]);
     }
 

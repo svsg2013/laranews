@@ -14,7 +14,7 @@
                         <th>Name</th>
                         <th>Alias</th>
                         <th>Meta Title</th>
-                        <th>Description</th>
+                        <th>Category</th>
                         <th>Weight</th>
                         <th>Option</th>
                         <th>Check all</th>
@@ -25,11 +25,24 @@
                         <td>{{$cate->name}}</td>
                         <td>{{$cate->alias}}</td>
                         <td>{{$cate->metaName}}</td>
-                        <td>{{$cate->description}}</td>
+                        <td >
+                            @if($cate->lvl==0)
+                                {!!'<span style="color: red">Thư mục cha</span>' !!}
+                            @else
+                                <?php
+                                $catePa= DB::table('categories')
+                                    ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
+                                    ->select('name')->where('categories.id','=',$cate->lvl)
+                                    ->get()->first();
+                                echo $catePa->name;
+                                ?>
+                            @endif
+                        </td>
                         <td>{{$cate->weight}}</td>
                         <td>
-                            <a href="{{route('category.edit',$cate->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
-                            <a href="{{route('category.destroy',$cate->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
+                            <a href="{{route('category.edit',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
+                            <a href="{{route('category.destroy',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger" id="toastr-six"> <i class="fa fa-remove"></i> </button></a>
+                            <button type="button" class="btn btn-default waves-effect btn-sm" id="toastr-nine">Click me</button>
                         </td>
                         <td>
                             <div class="checkbox checkbox-danger">

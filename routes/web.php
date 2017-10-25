@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['prefix'=>'panel'],function(){
-        Route::resource('category','CateController');
+        Route::resource('category','CateController',['except'=>'destroy']);
     });
+    Route::get('category/{idDelete}','CateController@destroy')->name('category.destroy');
 });
 

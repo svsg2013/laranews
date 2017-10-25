@@ -27,7 +27,7 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
         $cate= DB::table('categories')
             ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
             ->select('name','lvl','alias','metaName','description','weight','child_cates.cateParen_id')
-            ->get()->toArray();
+            ->get();
         return $cate;
     }
 

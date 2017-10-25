@@ -368,6 +368,9 @@
         <script src="{{asset('backend/js/waves.js')}}"></script>
         <script src="{{asset('backend/js/jquery.slimscroll.js')}}"></script>
 
+        <!-- Toastr js -->
+        <script src="{{asset('backend/plugins/jquery-toastr/jquery.toast.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('backend/pages/jquery.toastr.js')}}" type="text/javascript"></script>
 
         <!-- Counter js  -->
         <script src="{{asset('backend/plugins/waypoints/jquery.waypoints.min.js')}}"></script>
@@ -388,6 +391,7 @@
         <script src="{{asset('backend/js/jquery.app.js')}}"></script>
         <!--hixxx myscript-->
         <script src="{{asset('backend/js/myScript.js')}}"></script>
+
 @yield('jstable')
 @yield('jsfiles')
 
