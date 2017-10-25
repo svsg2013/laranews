@@ -13,11 +13,12 @@ function getMenu($category,$lvl = 0,$char='|--',$select=0){
         if($cate->lvl == $lvl){
 			if($cate->cateParen_id!=0 && $cate->cateParen_id==$select){
 				echo "<option value=$cate->cateParen_id selected='selected'>$char $cate->name</option>";
-			}else{
+			}
+			else{
 				echo "<option value=$cate->cateParen_id>$char $cate->name</option>";
 			}
 						unset($category[$key]);
-			            getMenu($category,$cate->cateParen_id,$char.'|--');
+			            getMenu($category,$cate->cateParen_id,$char.'|--',$select);
         }
     }
 }

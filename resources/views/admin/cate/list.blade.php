@@ -17,7 +17,6 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Option</th>
-                        <th>Check all</th>
                     </tr>
                     </thead>
                     @foreach($cates as $cate)
@@ -42,15 +41,7 @@
                         <td>
                             <a href="{{route('category.edit',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
                             <a href="{{route('category.destroy',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger" id="toastr-six"> <i class="fa fa-remove"></i> </button></a>
-                            <button type="button" class="btn btn-default waves-effect btn-sm" id="toastr-nine">Click me</button>
-                        </td>
-                        <td>
-                            <div class="checkbox checkbox-danger">
-                                <input id="checkbox6" type="checkbox">
-                                <label for="checkbox6">
 
-                                </label>
-                            </div>
                         </td>
                     </tr>
                     @endforeach

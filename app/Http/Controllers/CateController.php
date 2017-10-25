@@ -77,6 +77,7 @@ class CateController extends Controller
             ->where('child_cates.cateParen_id','=',$id)
             //first get value object
             ->get()->first();
+
 		return view('admin.cate.edit')->with(['datas'=>$cateData,'catePaId'=>$cateParent]);
     }
 
