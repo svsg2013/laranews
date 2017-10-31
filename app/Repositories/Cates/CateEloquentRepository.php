@@ -49,6 +49,7 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
 					$cateChildData->cateParen_id= $cateData->id;
 					$cateChildData->lvl= $inputFile['slMenu'];
 					$cateChildData->save();
+                    return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
 			}else{
 				$cateData= Category::find($id);
 				$cateData->name= $inputFile['txtName'];
@@ -69,13 +70,22 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
 					$cateChildData= ChildCate::find($getIDParent->id);
 					$cateChildData->lvl= $inputFile['slMenu'];
 					$cateChildData->save();
+                    return redirect()->route('category.index')->with('thongbao','Danh mục thay đổi thành công');
 			}
 
     }
 
     public function getDelete($id)
     {
-        $getid= Category::find($id);
-        $getid->delete();
+        //$getid= Category::find($id);
+        //$getid->delete();
+        $categet= ChildCate::where('lvl',$id)->count();
+        if($categet==0){
+            $getid= Category::find($id);
+            $getid->delete();
+            return redirect()->route('category.index')->with('thongbao','Xóa thành công');
+        }else{
+            return redirect()->route('category.index')->with('thongbaoloi','Đây là thư mục cha không thể xóa được');
+        }
     }
 }

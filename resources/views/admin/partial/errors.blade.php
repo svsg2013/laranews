@@ -12,5 +12,10 @@
         <strong>{{session('thongbao')}}</strong> successfully!
     </div>
 @endif
+@if(session('thongbaoloi'))
+    <div class="alert alert-danger alert-dismissible fade in fadeout" role="alert">
+        <strong>{{session('thongbaoloi')}}</strong>, phải xóa hết mục con
+    </div>
+@endif
 
 

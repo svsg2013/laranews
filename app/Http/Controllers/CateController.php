@@ -48,7 +48,7 @@ class CateController extends Controller
     public function store(RequestCate $requestcate)
     {
         $data= $this->_cate->getCreateAndEdit($requestcate->all());
-        return redirect()->route('category.index')->with('thongbao','Danh mục tạo thành công');
+        return $data;
     }
 
     /**
@@ -91,7 +91,7 @@ class CateController extends Controller
     public function update(Request $request, $id)
     {
         $data= $this->_cate->getCreateAndEdit($request->all(), $id);
-        return redirect()->route('category.index')->with('thongbao','Danh mục thay đổi thành công');
+        return $data;
     }
 
     /**
@@ -103,6 +103,6 @@ class CateController extends Controller
     public function destroy($id)
     {
         $tienVong= $this->_cate->getDelete($id);
-        return redirect()->route('category.index')->with('thongbao','Xóa thành công');
+        return $tienVong;
     }
 }
