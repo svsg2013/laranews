@@ -47,6 +47,8 @@
     <link href="{{asset('backend/css/responsive.css')}}" rel="stylesheet" type="text/css" />
 
     <script src="{{asset('backend/js/modernizr.min.js')}}"></script>
+    <!--mystyle-->
+    <link href="{{asset('backend/css/mystyle.css')}}" rel="stylesheet" type="text/css"/>
 
 </head>
 

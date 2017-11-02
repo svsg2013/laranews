@@ -99,7 +99,7 @@ function($) {
     //switch
     Components.prototype.initSwitchery = function() {
         $('[data-plugin="switchery"]').each(function (idx, obj) {
-            new Switchery($(this)[0], $(this).data());
+            new Switchery($(this)[0], $(this).data('value',1));
         });
     },
 

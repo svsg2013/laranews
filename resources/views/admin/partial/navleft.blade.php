@@ -24,7 +24,8 @@
                     <a href="javascript: void(0);" aria-expanded="true"><i class="fi-target"></i> <span> News </span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
                         <li><a href="admin-grid.html">Create News</a></li>
-                        <li><a href="admin-sweet-alert.html">List News</a></li>
+                        <li><a href="{{route('news.index')}}">List News</a></li>
+                        <li><a href="admin-sweet-alert.html">List Tags</a></li>
                     </ul>
                 </li>
                 <li>

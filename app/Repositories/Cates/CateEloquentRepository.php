@@ -77,8 +77,6 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
 
     public function getDelete($id)
     {
-        //$getid= Category::find($id);
-        //$getid->delete();
         $categet= ChildCate::where('lvl',$id)->count();
         if($categet==0){
             $getid= Category::find($id);

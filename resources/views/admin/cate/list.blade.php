@@ -40,7 +40,7 @@
                         <td style="text-align: center">{{$cate->weight}}</td>
                         <td>
                             <a href="{{route('category.edit',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
-                            <a href="{{route('category.destroy',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
+                            <a href="{{route('category.delete',$cate->cateParen_id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
 
                         </td>
                     </tr>
