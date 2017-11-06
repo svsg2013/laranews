@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\News\NewsRepositoryInterface;
 
 class Newscontroller extends Controller
 {
@@ -12,9 +13,16 @@ class Newscontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $_news;
+
+    public function __construct(NewsRepositoryInterface $newsrepositoryinterface)
+    {
+        $this->_news= $newsrepositoryinterface;
+    }
+
     public function index()
     {
-        return view('admin.news.create');
+        return view('admin.news.list');
     }
 
     /**
@@ -24,7 +32,8 @@ class Newscontroller extends Controller
      */
     public function create()
     {
-        //
+        $getMenu= $this->_news->getDataMenu();
+        return view('admin.news.create')->with(['getDataMenu'=>$getMenu]);
     }
 
     /**

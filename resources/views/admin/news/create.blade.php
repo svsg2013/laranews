@@ -16,16 +16,32 @@
                                         {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    {!! Form::label('title','SEO Title',['class'=>'col-md-2 control-label']) !!}
+                                    <div class="col-md-10">
+                                        {!! Form::text('txtMetatitle',old('txtMetitle'),['placeholder'=>'To type here','class'=>'form-control']) !!}
+                                    </div>
+                                </div>
                                  <div class="form-group">
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
-                                         {!! Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...','class'=>'form-control']) !!}
+                                         <select class="form-control" name="slMenu">
+                                             <option value="0">Select one</option>
+                                             {{getMenu($getDataMenu)}}
+                                         </select>
+
                                      </div>
                                  </div>
                                 <div class="form-group">
                                     {!! Form::label('Summary','Summary',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
                                         {!! Form::textarea('txtSummary',old('txtSummary'),['placeholder'=>'To type here','class'=>'form-control','rows'=>5]) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('Summary','SEO Description',['class'=>'col-md-2 control-label']) !!}
+                                    <div class="col-md-10">
+                                        {!! Form::textarea('txtDescription',old('txtDescription'),['placeholder'=>'To type here','class'=>'form-control','rows'=>5]) !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -55,22 +71,59 @@
                     </div><!--mid 8-->
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-12">
-                                {!! Form::label('The Feature on Board') !!}
+                            <div class="col-md-12" style="padding: 0px">
+                                <div class="head-feature">
+                                    {!! Form::label('feature','The Feature on Board',['class'=>'cusLabel']) !!}
+                                </div>
+
                             </div>
-                            <div class="col-md-6">
+                            <div class="clearfix"></div>
+                            <div class="col-md-4">
                                 {!! Form::label('Hot News') !!}
                                 <!-- Slide THREE -->
                                     <div class="slideThree">
-                                        <input type="checkbox" value="None" id="slideThree" name="check" />
+                                        <input type="checkbox" value="1" id="slideThree" name="checkHot" />
                                         <label for="slideThree"></label>
                                     </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 {!! Form::label('Feature News') !!}
+                                <!-- Slide THREE -->
+                                    <div class="slideThree1">
+                                        <input type="checkbox" value="1" id="slideThree1" name="checkFeature" />
+                                        <label for="slideThree1"></label>
+                                    </div>
                             </div>
+                            <div class="col-md-4">
+                            {!! Form::label('Active') !!}
+                            <!-- Slide THREE -->
+                                <div class="slideThree2">
+                                    <input type="checkbox"  checked value="1" id="slideThree2" name="checkActive" />
+                                    <label for="slideThree2"></label>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-12">
+                                <div class="cusWeight">
+                                    {!! Form::label('The Weight post') !!}
+                                    {!! Form::text('txtWeight','1') !!}
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group cusSelect">
+                                    <h5>Multiple select</h5>
+                                    <select multiple="" class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div><!--row-sigbar-right-->
                         </div>
-                    </div><!--mid 4-->
+                    </div>
+
                     {!! Form::close() !!}
                 </div>
                 <!-- end row -->
