@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
 			$table->mediumText('summary');
 			$table->string('description');
 			$table->longText('content');
+			$table->string('images');
 			$table->boolean('feature');
 			$table->boolean('hot');
 			$table->integer('sort')->unsigned();

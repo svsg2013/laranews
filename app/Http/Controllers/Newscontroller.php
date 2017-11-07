@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\News\NewsRepositoryInterface;
+use App\Http\Requests\RequestNews;
 
 class Newscontroller extends Controller
 {
@@ -44,7 +45,9 @@ class Newscontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= $this->_news->getCreateAndEdit($request->all());
+        var_dump($data);die();
+        return $data;
     }
 
     /**

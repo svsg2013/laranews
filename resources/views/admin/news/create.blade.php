@@ -7,9 +7,10 @@
         <div class="col-sm-12">
             <div class="card-box">
                 <div class="row">
+                    {!! Form::open(['route' => 'news.store','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
                     <div class="col-md-8">
                         <div class="p-20">
-                            {!! Form::open(['url' => 'food','class'=>'form-horizontal','role'=>'form']) !!}
+
                                 <div class="form-group">
                                     {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                     <div class="col-md-10">
@@ -67,7 +68,7 @@
                                     </div>
                                 </div>
 
-                        </div>
+                        </div><!-----s----------->
                     </div><!--mid 8-->
                     <div class="col-md-4">
                         <div class="row">
@@ -122,11 +123,10 @@
                                 </div>
                             </div><!--row-sigbar-right-->
                         </div>
-                    </div>
-
                     {!! Form::close() !!}
+                    </div><!-- end row -->
                 </div>
-                <!-- end row -->
+
 
             </div> <!-- end card-box -->
         </div><!-- end col -->

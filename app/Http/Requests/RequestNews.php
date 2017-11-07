@@ -24,7 +24,7 @@ class RequestNews extends FormRequest
     public function rules()
     {
         return [
-            "txtName"=>"required|unique",
+            "txtName"=>"required|unique:news,title",
             "slMenu"=>"required",
             "txtContent"=>"required",
             "fileImg"=>"required|image:jpeg, png, bmp, gif, svg"

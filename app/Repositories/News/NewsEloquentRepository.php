@@ -50,16 +50,18 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
                 $news->description= $inputFile['txtDescription'];
             }
             $news->content= $inputFile['txtContent'];
-            $news->hot= $inputFile['slideThree'];
-            $news->feature= $inputFile['slideThree1'];
-            $news->active= $inputFile['slideThree2'];
+            $news->hot= $inputFile['checkHot'];
+            $news->feature= $inputFile['checkFeature'];
+            $news->active= $inputFile['checkActive'];
             $news->sort= $inputFile['txtWeight'];
             if (Input::hasFile('fileImg')){
                 $file= Input::file('fileImg');
                 $name= $file->getClientOriginalName();
                 $file->move('uploads/thumbnail',$name);
-                $news->image=$name;
+                $news->images=$name;
             }
+            var_dump($news);die();
+            //return redirect()->route('news.index');
 
         }
     }
