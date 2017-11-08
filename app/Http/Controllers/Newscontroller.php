@@ -43,10 +43,9 @@ class Newscontroller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestNews $requestnews)
     {
-        $data= $this->_news->getCreateAndEdit($request->all());
-        var_dump($data);die();
+        $data= $this->_news->getCreateAndEdit($requestnews->all());
         return $data;
     }
 

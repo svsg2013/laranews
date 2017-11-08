@@ -35,6 +35,7 @@ class RequestNews extends FormRequest
             "txtName.required"=>"Vui lòng nhập tiêu đề",
             "txtName.unique"=>"Tiêu đề đã tồn tại trong cơ sở dữ liệu",
             "slMenu.required"=>"Vui lòng chọn danh mục",
+            "txtContent.required"=>"Vui lòng nhập nội dung",
             "fileImg.required"=>"Vui lòng nhập hình ảnh",
             "fileImg.image"=>"Định dạng file ảnh không đúng (jpeg, png, bmp, gif, svg)"
 

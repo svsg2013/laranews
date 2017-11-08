@@ -7,6 +7,11 @@
         <div class="col-sm-12">
             <div class="card-box">
                 <div class="row">
+                    <div class="col-md-12">
+                        @include('admin.partial.errors')
+                    </div>
+                </div>
+                <div class="row">
                     {!! Form::open(['route' => 'news.store','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
                     <div class="col-md-8">
                         <div class="p-20">

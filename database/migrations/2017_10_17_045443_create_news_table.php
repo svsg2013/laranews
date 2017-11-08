@@ -22,10 +22,10 @@ class CreateNewsTable extends Migration
 			$table->mediumText('summary');
 			$table->string('description');
 			$table->longText('content');
+			$table->boolean('feature')->default(0)->nullable ();
 			$table->string('images');
-			$table->boolean('feature');
-			$table->boolean('hot');
-			$table->integer('sort')->unsigned();
+			$table->boolean('hot')->default(0)->nullable();
+			$table->integer('sort')->default(1)->unsigned();
 			$table->integer('view')->unsigned();
 			$table->boolean('active');
 			$table->foreign('Cate_id')

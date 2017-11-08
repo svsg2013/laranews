@@ -50,17 +50,34 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
                 $news->description= $inputFile['txtDescription'];
             }
             $news->content= $inputFile['txtContent'];
-            $news->hot= $inputFile['checkHot'];
-            $news->feature= $inputFile['checkFeature'];
-            $news->active= $inputFile['checkActive'];
-            $news->sort= $inputFile['txtWeight'];
+            if (!isset($inputFile['checkHot']) && !isset($inputFile['checkFeature'])){
+                $news->hot= 0;
+                $news->feature= 0;
+            }elseif (isset($inputFile['checkHot']) && !isset($inputFile['checkFeature'])){
+                $news->hot= $inputFile['checkHot'];
+                $news->feature= 0;
+            }elseif(isset($inputFile['checkHot']) && isset($inputFile['checkFeature'])){
+                $news->hot= $inputFile['checkHot'];
+                $news->feature= $inputFile['checkFeature'];
+            }else{
+                $news->hot= 0;
+                $news->feature= $inputFile['checkFeature'];
+            }
+            if (isset($inputFile['checkActive'])){
+                $news->active= $inputFile['checkActive'];
+            }else{
+                $news->active= 0;
+            }
+            if(isset($inputFile['txtWeight'])){
+                $news->sort= $inputFile['txtWeight'];
+            }
             if (Input::hasFile('fileImg')){
                 $file= Input::file('fileImg');
                 $name= $file->getClientOriginalName();
                 $file->move('uploads/thumbnail',$name);
                 $news->images=$name;
             }
-            var_dump($news);die();
+            dd($news);die();
             //return redirect()->route('news.index');
 
         }
