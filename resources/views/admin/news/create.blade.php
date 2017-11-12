@@ -32,7 +32,7 @@
                                      {!! Form::label('input select','Input Select',['class'=>'col-md-2 control-label']) !!}
                                      <div class="col-md-10">
                                          <select class="form-control" name="slMenu">
-                                             <option value="0">Select one</option>
+                                             <option value="">Select one</option>
                                              {{getMenu($getDataMenu)}}
                                          </select>
 
@@ -55,7 +55,7 @@
                                     <div class="col-md-10">
                                         {!! Form::textarea('txtContent',old('txtContent'),['class'=>'form-control','id'=>'editor1']) !!}
                                         <script>
-                                            CKEDITOR.replace( 'editor1' );
+                                            ckeditor('txtContent');
                                         </script>
                                     </div>
                                 </div>
@@ -77,13 +77,6 @@
                     </div><!--mid 8-->
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-12" style="padding: 0px">
-                                <div class="head-feature">
-                                    {!! Form::label('feature','The Feature on Board',['class'=>'cusLabel']) !!}
-                                </div>
-
-                            </div>
-                            <div class="clearfix"></div>
                             <div class="col-md-4">
                                 {!! Form::label('Hot News') !!}
                                 <!-- Slide THREE -->

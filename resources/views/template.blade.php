@@ -29,8 +29,12 @@
     <!-- Bootstrap fileupload css -->
     <link href="{{asset('backend/plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}" rel="stylesheet" />
 
-    <script src="{{asset('backend/ckeditor/ckeditor.js')}}"></script>
-
+    <script src="{{asset('backend/js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('backend/js/ckfinder/ckfinder.js')}}"></script>
+    <script type="text/javascript">
+        var baseURL= "{{url('/')}}";
+    </script>
+    <script src="{{asset('backend/js/func_ckfinder.js')}}"></script>
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('backend/images/favicon.ico')}}">
 

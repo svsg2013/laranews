@@ -86,4 +86,5 @@ class CateEloquentRepository extends EloquentRepository implements CateRepositor
             return redirect()->route('category.index')->with('thongbaoloi','Đây là thư mục cha không thể xóa được');
         }
     }
+
 }

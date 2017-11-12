@@ -14,6 +14,7 @@
                         <th>Title</th>
                         <th>Hot News</th>
                         <th>Feature News</th>
+                        <th>Active</th>
                         <th>Weight</th>
                         <th>Option</th>
                     </tr>
@@ -23,6 +24,7 @@
                     <tbody>
                     <tr>
                         <td>Office Manager Office Manager Office Manager Office Manager Office Manager</td>
+                        <td style="text-align: center">On</td>
                         <td style="text-align: center">On</td>
                         <td style="text-align: center">On</td>
                         <td style="text-align: center">1</td>
