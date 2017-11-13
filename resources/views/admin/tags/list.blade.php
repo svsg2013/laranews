@@ -11,29 +11,27 @@
                 <table id="datatable-fixed-header" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Hot</th>
-                        <th>Feature</th>
-                        <th>Active</th>
+                        <th>Name</th>
+                        <th>Alias</th>
+                        <th>Meta Title</th>
+                        <th>Category</th>
                         <th>Weight</th>
                         <th>Option</th>
                     </tr>
                     </thead>
+                        <tr>
+                            <td>abb</td>
+                            <td>abb</td>
+                            <td>abb</td>
+                            <td >abb</td>
+                            <td style="text-align: center">abb</td>
+                            <td>
+                                <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
+                                <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
 
-
-                    <tbody>
-                    <tr>
-                        <td>Office Manager Office Manager Office Manager Office Manager Office Manager</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">1</td>
-                        <td>
-                            <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
-                            <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
-                        </td>
-                    </tr>
-                    </tbody>
+                            </td>
+                        </tr>
+                        </tbody>
                 </table>
             </div>
         </div>

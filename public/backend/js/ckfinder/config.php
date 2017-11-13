@@ -60,7 +60,8 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = $_SERVER['SERVER_NAME']."/public/upload/";
+$baseUrl = "http://".$_SERVER['SERVER_NAME']."/public/upload/";
+//$baseUrl= "http://laranews.dev/resources/upload/";
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the

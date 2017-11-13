@@ -74,7 +74,7 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
             if (Input::hasFile('fileImg')){
                 $file= Input::file('fileImg');
                 $name= $file->getClientOriginalName();
-                $file->move('uploads/thumbnail',$name);
+                $file->move('upload/thumbnail',$name);
                 $news->images=$name;
             }
             dd($news);die();

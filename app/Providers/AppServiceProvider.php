@@ -31,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\News\NewsRepositoryInterface::class,
             \App\Repositories\News\NewsEloquentRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\Tags\TagsRepositoryInterface::class,
+            \App\Repositories\Tags\TagsEloquentRepository::class
+        );
     }
 }
