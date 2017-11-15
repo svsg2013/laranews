@@ -23,37 +23,40 @@ class TagsEloquentRepository extends EloquentRepository implements TagsRepositor
         // TODO: Implement getModel() method.
         return \App\Tag::class;
     }
-
-    public function getDataMenu(){
-//        $cate= DB::table('categories')
-//            ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
-//            ->select('name','lvl','alias','metaName','description','weight','child_cates.cateParen_id')
-//            ->get();
-//        return $cate;
-    }
-
     public function getCreateAndEdit($inputFile, $id=0){
         if ($id==0){
             $tag= new Tag();
-            $tag->title= $inputFile['txtName'];
-            $tag->alias=changeTitle($inputFile['txtName']);
-            $tag->active=1;
-            var_dump($tag);die();
+            if (isset($inputFile['txtName'])){
+                $tag->title= $inputFile['txtName'];
+                $tag->alias=changeTitle($inputFile['txtName']);
+            }
+            if (isset($inputFile['txtMeta'])){
+                $tag->metaTitle=$inputFile['txtMeta'];
+            }else{
+                $tag->metaTitle=$inputFile['txtName'];
+            }
             $tag->save();
-            return redirect()->route('tags.list')->with(['thongbao'=>'Tag tạo thành công']);
+            return redirect()->route('tags.index')->with(['thongbao'=>'Tag tạo thành công']);
+        }else{
+            $tag= Tag::find($id);
+            if (isset($inputFile['txtName'])){
+                $tag->title= $inputFile['txtName'];
+                $tag->alias=changeTitle($inputFile['txtName']);
+            }
+            if (isset($inputFile['txtMeta'])){
+                $tag->metaTitle=$inputFile['txtMeta'];
+            }else{
+                $tag->metaTitle=$inputFile['txtName'];
+            }
+            $tag->save();
+            return redirect()->route('tags.index')->with(['thongbao'=>'Tag sửa thành công']);
         }
     }
 
     public function getDelete($id)
     {
-        $categet= ChildCate::where('lvl',$id)->count();
-        if($categet==0){
-            $getid= Category::find($id);
-            $getid->delete();
-            return redirect()->route('category.index')->with('thongbao','Xóa thành công');
-        }else{
-            return redirect()->route('category.index')->with('thongbaoloi','Đây là thư mục cha không thể xóa được');
-        }
+        $getTag= Tag::find($id);
+        $getTag->delete();
+        return redirect()->route('tags.index')->with('thongbao','Tag đã được xóa, bất ngờ chưa?');
     }
-
 }

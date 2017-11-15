@@ -17,7 +17,7 @@ class CreateTagsTable extends Migration
             $table->increments('id');
 			$table->string('title');
 			$table->string('alias');
-			$table->boolean('active');
+			$table->string('metaTitle');
             $table->timestamps();
         });
     }

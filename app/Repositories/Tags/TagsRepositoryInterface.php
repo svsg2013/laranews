@@ -12,7 +12,7 @@ namespace App\Repositories\Tags;
 Interface TagsRepositoryInterface
 {
     public function getAll();
-    public function getDataMenu();
     public function getCreateAndEdit($inputFile);
     public function getDelete($id);
+    public function find($id);
 }

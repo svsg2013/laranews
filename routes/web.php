@@ -22,7 +22,8 @@ Route::group(['prefix'=>'admin'],function(){
         //article
         Route::resource('news','NewsController',['except'=>'destroy']);
         //tags
-        Route::resource('tags','TagsController');
+        Route::resource('tags','TagsController',['except'=>'destroy']);
+        Route::get('tags/{idDelete}/destroy','TagsController@destroy')->name('tags.delete');
     });
 
 });

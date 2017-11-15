@@ -21,7 +21,8 @@ class TagsController extends Controller
 
     public function index()
     {
-        return view('admin.tags.list');
+        $getTags= $this->_tag->getAll();
+        return view('admin.tags.list',compact('getTags'));
     }
 
     /**
@@ -65,7 +66,8 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $getdata= $this->_tag->find($id);
+        return view('admin.tags.edit',compact("getdata"));
     }
 
     /**
@@ -77,7 +79,8 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editTag= $this->_tag->getCreateAndEdit($request->all(),$id);
+        return $editTag;
     }
 
     /**
@@ -88,6 +91,7 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delTag= $this->_tag->getDelete($id);
+        return $delTag;
     }
 }

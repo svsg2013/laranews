@@ -16,8 +16,8 @@
 				<li>
                     <a href="javascript: void(0);" aria-expanded="true"><i class="fi-menu"></i> <span> Category </span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
-                        <li><a href="{{route('category.create')}}">Create News</a></li>
-                        <li><a href="{{route('category.index')}}">List News</a></li>
+                        <li><a href="{{route('category.create')}}">Create Category</a></li>
+                        <li><a href="{{route('category.index')}}">List Categories</a></li>
                     </ul>
                 </li>
                 <li>
@@ -30,7 +30,7 @@
                 <li>
                     <a href="javascript: void(0);" aria-expanded="true"><i class="fi-tag"></i> <span> Tags </span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
-                        <li><a href="{{route('tags.create')}}">Create Tags</a></li>
+                        <li><a href="{{route('tags.create')}}">Create Tag</a></li>
                         <li><a href="{{route('tags.index')}}">List Tags</a></li>
                     </ul>
                 </li>

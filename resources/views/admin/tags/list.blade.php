@@ -14,23 +14,21 @@
                         <th>Name</th>
                         <th>Alias</th>
                         <th>Meta Title</th>
-                        <th>Category</th>
-                        <th>Weight</th>
                         <th>Option</th>
                     </tr>
                     </thead>
+                    @foreach($getTags as $tag)
                         <tr>
-                            <td>abb</td>
-                            <td>abb</td>
-                            <td>abb</td>
-                            <td >abb</td>
-                            <td style="text-align: center">abb</td>
+                            <td>{{$tag->title}}</td>
+                            <td>{{$tag->alias}}</td>
+                            <td style="text-align: center">{{$tag->metaTitle}}</td>
                             <td>
-                                <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
-                                <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
+                                <a href="{{route('tags.edit',$tag->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
+                                <a href="{{route('tags.delete',$tag->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
 
                             </td>
                         </tr>
+                    @endforeach
                         </tbody>
                 </table>
             </div>

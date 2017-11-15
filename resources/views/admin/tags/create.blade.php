@@ -14,11 +14,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="p-20">
-                            {!! Form::open(['route' => 'category.store','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
+                            {!! Form::open(['route' => 'tags.store','class'=>'form-horizontal','role'=>'form','enctype'=>'multipart/form-data']) !!}
                             <div class="form-group">
                                 {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
                                 <div class="col-md-10">
-                                    {!! Form::text('txtTitle',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
+                                    {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
                                 </div>
                             </div>
                             <div class="form-group">

@@ -24,14 +24,14 @@ class RequestTags extends FormRequest
     public function rules()
     {
         return [
-            'txtTitle'=>'required|unique:tags,title',
+            'txtName'=>'required|unique:tags,title',
         ];
     }
 
     public function messages(){
         return[
-            'txtTitle.required'=>'Vui lòng nhập tiêu đề',
-            'txtTitle.unique'=>'Tag này đã tồn tại, xin nhập lại.'
+            'txtName.required'=>'Vui lòng nhập tiêu đề',
+            'txtName.unique'=>'Tag này đã tồn tại, xin nhập lại.'
         ];
     }
 }
