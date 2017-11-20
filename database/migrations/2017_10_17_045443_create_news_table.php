@@ -28,7 +28,7 @@ class CreateNewsTable extends Migration
 			$table->integer('sort')->default(1)->unsigned();
 			$table->integer('view')->unsigned();
 			$table->boolean('active');
-			$table->binary('relation');
+			$table->string('relation')->nullable();
 			$table->foreign('Cate_id')
 				  ->references('id')->on('categories')
 				  ->onDelete('cascade');

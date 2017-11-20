@@ -17,7 +17,7 @@
                         <div class="p-20">
 
                             <div class="form-group">
-                                {!! Form::label('title','Title',['class'=>'col-md-2 control-label']) !!}
+                                {!! Form::label('title','Title *',['class'=>'col-md-2 control-label']) !!}
                                 <div class="col-md-10">
                                     {!! Form::text('txtName',old('txtName'),['placeholder'=>'To type here','class'=>'form-control']) !!}
                                 </div>
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('Summary','Summary',['class'=>'col-md-2 control-label']) !!}
+                                {!! Form::label('Summary','Summary *',['class'=>'col-md-2 control-label']) !!}
                                 <div class="col-md-10">
                                     {!! Form::textarea('txtSummary',old('txtSummary'),['placeholder'=>'To type here','class'=>'form-control','rows'=>5]) !!}
                                 </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('Content','Content',['class'=>'col-md-2 control-label']) !!}
+                                {!! Form::label('Content','Content *',['class'=>'col-md-2 control-label']) !!}
                                 <div class="col-md-10">
                                     {!! Form::textarea('txtContent',old('txtContent'),['class'=>'form-control','id'=>'editor1']) !!}
                                     <script>
@@ -109,15 +109,23 @@
                                 </div>
                             </div>
                             <div class="clearfix"></div>
-                            <div class="form-group cusSelect">
-                                <h5>Multiple select</h5>
-                                <select multiple="" class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                            <div class="col-md-12">
+                                <div class="form-group cusSelect" style="margin-top: 5px;">
+                                    <h5>Multiple select</h5>
+                                    <select multiple class="form-control" name="slPost[]">
+                                        @foreach($getPosts as $getPost)
+                                        <option value={{$getPost->id}}>{{$getPost->title}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                {!! Form::label('Tags') !!}
+                                <ul>
+                                @foreach($getTags as $getTag)
+                                <li>{!! Form::checkbox('tags[]',$getTag['id'], null,['style'=>'visibility:visible']) !!} {{$getTag['title']}}</li>
+                                @endforeach
+                                </ul>
                             </div>
                         </div><!--row-sigbar-right-->
                     </div>

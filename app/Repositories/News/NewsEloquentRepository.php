@@ -11,6 +11,8 @@ use App\Repositories\EloquentRepository;
 use App\Category;
 use App\ChildCate;
 use App\News;
+use App\Tag;
+use App\News_tag;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +26,49 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
         return \App\News::class;
     }
 
+    public function unseri($id){
+        $getPostandUn=array();
+        //truy vấn relation lấy giá trị để biên dịch lại mảng bị mã hóa
+        $getId= DB::table('news')->select('relation')->where('id',$id)->get();
+        //truy vấn lấy dữ liệu news
+        $getPost=DB::table('news')->select('id','title')->get();
+        //chọn giá trị mảng tới phần tử object
+        $unseri= unserialize($getId[0]->relation);
+        //gôm chung giá trị vào một mảng để xử lý foreach lấy giá trị relation
+        foreach ($getPost as $getData){
+            $getPostandUn[]=array(
+                'id'=>$getData->id,
+                'title'=>$getData->title,
+                'relation'=>$unseri
+            );
+        }
+        return $getPostandUn;
+    }
+
+    public function getAll(){
+        $getData= DB::table('news')->select('id','title','hot','feature','active','sort','relation')->get();
+        return $getData;
+    }
+
+    public function getTags($id=0){
+        if ($id==0){
+            $allTags=DB::table('tags')->select('id','title')->get()->toArray();
+            return $allTags;
+        }else{
+            $getTagandChek=array();
+            $getIdofTag=DB::table('news_tags')->select('tag_id')->where('news_id',$id)->get()->toArray();
+            $allTags=DB::table('tags')->select('id','title')->get();
+            foreach ($allTags as $tag){
+                $getTagandChek[]=array(
+                    'id'=>$tag->id,
+                    'title'=>$tag->title,
+                    'check'=>$getIdofTag
+                );
+            }
+            return $getTagandChek;
+        }
+    }
+
     public function getDataMenu(){
         $cate= DB::table('categories')
             ->leftjoin('child_cates','categories.id','=','child_cates.cateParen_id')
@@ -35,6 +80,10 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
     public function getCreateAndEdit($inputFile, $id=0){
         if($id==0){
             $news= new News();
+            $news->view= 1;
+            if (isset($inputFile['slPost'])){
+                $news->relation= serialize($inputFile['slPost']);
+            }
             $news->title= $inputFile['txtName'];
             $news->Cate_id= $inputFile['slMenu'];
             if (!isset($inputFile['txtMetatitle'])){
@@ -74,12 +123,21 @@ class NewsEloquentRepository extends EloquentRepository implements NewsRepositor
             if (Input::hasFile('fileImg')){
                 $file= Input::file('fileImg');
                 $name= $file->getClientOriginalName();
-                $file->move('upload/thumbnail',$name);
+                $file->move('public/upload/thumbnail',$name);
                 $news->images=$name;
             }
-            dd($news);die();
-            //return redirect()->route('news.index');
-
+            $news->save();
+            $idNews= $news->id;
+            if (isset($inputFile['tags'])){
+                $abc= Input::get('tags');
+                foreach ($abc as $key => $getTag){
+                    $tagNew= new News_tag();
+                    $tagNew->tag_id= $getTag;
+                    $tagNew->news_id=$idNews;
+                    $tagNew->save();
+                }
+            }
+            return redirect()->route('news.index')->with(['thongbao'=>'Tin được tạo thành công']);
         }
     }
 

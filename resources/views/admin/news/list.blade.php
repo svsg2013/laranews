@@ -22,17 +22,37 @@
 
 
                     <tbody>
+                    @foreach($getData as $get)
                     <tr>
-                        <td>Office Manager Office Manager Office Manager Office Manager Office Manager</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">On</td>
-                        <td style="text-align: center">1</td>
+                        <td>{{$get->title}}</td>
                         <td>
-                            <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
+                            @if(($get->hot) == 1)
+                                {!! "<p style='color:#2b579a'>On<p>"!!}
+                                @else
+                                    {!! "<p style='color:#d8d8d8'>Off<p>" !!}
+                                @endif
+                        </td>
+                        <td>
+                            @if(($get->feature) == 1)
+                                {!! "<p style='color:#2b579a'>On<p>"!!}
+                            @else
+                                {!! "<p style='color:#d8d8d8'>Off<p>" !!}
+                            @endif
+                        </td>
+                        <td>
+                            @if(($get->active) == 1)
+                                {!! "<p style='color:#2b579a'>On<p>"!!}
+                            @else
+                                {!! "<p style='color:#d8d8d8'>Off<p>" !!}
+                            @endif
+                        </td>
+                        <td>{{$get->sort}}</td>
+                        <td>
+                            <a href="{{route('news.edit',$get->id)}}"><button type="button" class="btn btn-icon waves-effect waves-light btn-warning">  <i class="fa fa-wrench"></i> </button></a>
                             <a href="#"><button type="button" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fa fa-remove"></i> </button></a>
                         </td>
                     </tr>
+                     @endforeach
                     </tbody>
                 </table>
             </div>

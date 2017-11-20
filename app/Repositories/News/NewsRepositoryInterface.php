@@ -12,7 +12,10 @@ namespace App\Repositories\News;
 Interface NewsRepositoryInterface
 {
     public function getAll();
+    public function getTags($id);
     public function getDataMenu();
     public function getCreateAndEdit($inputFile);
     public function getDelete($id);
+    public function find($id);
+    public function unseri($id);
 }

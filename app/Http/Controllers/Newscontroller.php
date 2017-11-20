@@ -23,7 +23,8 @@ class Newscontroller extends Controller
 
     public function index()
     {
-        return view('admin.news.list');
+        $getAll= $this->_news->getAll();
+        return view('admin.news.list')->with(['getData'=>$getAll]);
     }
 
     /**
@@ -33,8 +34,10 @@ class Newscontroller extends Controller
      */
     public function create()
     {
+        $getTag= $this->_news->getTags();
         $getMenu= $this->_news->getDataMenu();
-        return view('admin.news.create')->with(['getDataMenu'=>$getMenu]);
+        $getPost= $this->_news->getAll();
+        return view('admin.news.create')->with(['getDataMenu'=>$getMenu,'getTags'=>$getTag,'getPosts'=>$getPost]);
     }
 
     /**
@@ -68,7 +71,11 @@ class Newscontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $getTag= $this->_news->getTags($id);
+        $getMenu= $this->_news->getDataMenu();
+        $getPost= $this->_news->find($id);
+        $unseri= $this->_news->unseri($id);
+        return view('admin.news.edit')->with(['getDataMenu'=>$getMenu,'getTags'=>$getTag,'getPosts'=>$getPost,'unseris'=>$unseri]);
     }
 
     /**
